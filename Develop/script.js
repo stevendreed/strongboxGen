@@ -20,7 +20,8 @@ function usrInput(MAXLEN)
   }
 }
 
-function pwGen(validChars, validNums, validSymb, len)
+// [# of chars, # of caps, # of nums, # symbols, # total]
+function pwGen(inputnum)
 {
   let pwOut = [];
 
