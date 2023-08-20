@@ -10,6 +10,7 @@ function writePassword()
   passwordText.value = password;
 
 }
+
 function usrInput(MAXLEN)
 {
   // adds default behavior to usrInput() function
@@ -17,7 +18,15 @@ function usrInput(MAXLEN)
   {
     MAXLEN = 64;
   }
+}
+
+function pwGen(validChars, validNums, validSymb, len)
+{
+  let pwOut = [];
+
   
+
+  return pwOut;
 }
 
 // Add event listener to generate button
