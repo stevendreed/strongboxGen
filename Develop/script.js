@@ -11,28 +11,33 @@ var generateBtn = document.querySelector(`#generate`);
 // Write password to the #password input
 function writePassword()
 {
-  var password = generatePassword();
-  var passwordText = document.querySelector(`#password`);
-
-  passwordText.value = password;
   // build a list of elements for: lower/uppercase, numeric, special chars,
   // and length of password (7 < n < 129)
 
-
-
-
+  var password = pwGen();
+  var passwordText = document.querySelector(`#password`);
+  // set text value to equal generated password
+  passwordText.value = password;
   // render password onto the page
 
 }
 
-// function usrInput(MAXLEN)
-// {
-//   // adds default behavior to usrInput() function
-//   if (typeof MAXLEN === `undefined`)
-//   {
-//     MAXLEN = 64;
-//   }
-// }
+/*
+userInput()
+
+generates buttons on the page that allow the end-user to select what properties
+they want their password to have
+
+properties include:
+ - include upper & lower, just upper, just lower
+ - include numeric [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+ - include special chars: [ , !, ", #, $, %, &, ', (, ), *, +, ',',-, .,
+                            :, ;, <, =, >, ?, @, [, ], ^, _, `, {, |, }, ~]
+*/
+function usrInput()
+{
+  const passwordCard = document.getElementsByClassName(`card`);
+}
 
 // [# of caps, # of nums, # symbols, # total]
 function pwGen(inputArgs)
