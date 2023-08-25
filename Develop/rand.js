@@ -8,15 +8,20 @@ which can be used to generate the actual random component of password elements
 +=============================================================================+
 */
 
+/*
+myRand(numberInputToSeed)
+
+this function returns a value from 0 to 2048 with the modulus operator
+*/
 function myRand(seed)
-{
-    const date = new Date(); 
-    return Math.floor(parseFloat(Date >> 2) % 2048) // returns values from 0 - 2048
+{ 
+    // returns values from 0 - 2047
+    return (seed >> 2) % 2048;
 }
 
 function mySeeder()
 {
     // filler function that returns an integer based on epoch time
-    return Math.floor(Date() / 1024);
+    return Math.floor(parseFloat(Date()));
 }
 
