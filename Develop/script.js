@@ -21,11 +21,18 @@ function usrInput(MAXLEN)
   }
 }
 
-// [# of chars, # of caps, # of nums, # symbols, # total]
-function pwGen(inputnum)
+// [# of caps, # of nums, # symbols, # total]
+function pwGen(inputArgs)
 {
+  // default behavior
+  if (!inputArgs)
+  {
+    inputArgs.append(2);
+    inputArgs.append(2);
+    inputArgs.append(2);
+    inputArgs.append(12); // this means 6 filler chars by default
+  }
   let pwOut = [];
-
   
 
   return pwOut;
