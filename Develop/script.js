@@ -13,22 +13,22 @@ const inputOptions =
   includeUpper:
   {
     displayText: `Include upper case characters? {A, B, C, ...}`,
-    inputType: `checkmark`
+    inputType: `checkbox`
   },
   includeNum:
   {
     displayText: `Include numeric characters? {1, 2, 3, ...}`,
-    inputType: `checkmark`
+    inputType: `checkbox`
   },
   includeSymbols:
   {
     displayText: `Include symbols? {$, #, |, ...}`,
-    inputType: `checkmark`
+    inputType: `checkbox`
   },
   pwLen:
   {
     displayText: `Set a length from 8 to 128`,
-    inputType: `slider`
+    inputType: `range`
   },
 }
 
@@ -67,19 +67,20 @@ function usrInput()
 {
   // find element with card class
   const passwordCard = document.getElementsByClassName(`card`);
-  let li = document.createElement("li"); // create an <li> element on the page
+  let input = document.createElement(`input`); // create an  <input> element on the page
 
   // loop through the input options and add display text, set the input type,
   // add a tracking no to find the order easily
   let tracker = 0;
   for (object in inputOptions)
   {
-    li.textContent = inputOptions.object.displayText;
-    li.setAttribute(`data-input`, inputOptions.object.inputType);
-    li.setAttribute(`data-no`,++tracker);
+   input.textContent = inputOptions.object.displayText;
+   input.setAttribute(`type`, inputOptions.object.inputType);
+   input.setAttribute(`data-no`,++tracker);
+    
 
     // create input in UI
-    document.createElement(`input`).
+    document.createElement(`input`);
   }
   
   
