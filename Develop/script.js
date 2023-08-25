@@ -31,24 +31,35 @@ they want their password to have
 
 properties include:
  - include upper & lower, just upper, just lower
- - number of these
+ - number of these (optional)
  - include numeric [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
- - number of these
+ - number of these (optional)
  - include special chars: [ , !, ", #, $, %, &, ', (, ), *, +, ',',-, .,
                             :, ;, <, =, >, ?, @, [, ], ^, _, `, {, |, }, ~]
- - number of these
+ - number of these (optional)
  - set password length from 8 to 128
 */
 function usrInput()
 {
   // find element with card class
   const passwordCard = document.getElementsByClassName(`card`);
+  const buttonOptions =
+  {
+    includeUpper:
+    {
+      displayText: `Include upper case characters?`,
+      buttonType: `checkmark`
+    },
 
-  // append children elements for each button needed
 
+  }
+  let li = document.createElement("li"); // create an <li> element on the page
+  
   // set data attributes for whether or not they were checked/clicked
 
   // set ids for each button to find them easily
+
+  // append children elements for each button needed
 
   // render each button in a user-friendly way
 }
