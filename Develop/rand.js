@@ -10,7 +10,8 @@ which can be used to generate the actual random component of password elements
 
 function myRand(seed)
 {
-    return 
+    const date = new Date(); 
+    return Math.floor(parseFloat(Date >> 2) % 2048) // returns values from 0 - 2048
 }
 
 function mySeeder()
