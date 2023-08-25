@@ -24,5 +24,5 @@ this function returns a value from 0 to 2048 with the modulus operator
 function myRand(seed)
 { 
     // returns values from 0 - 2047
-    return (seed >> 2) % 2048;
+    return (Math.abs(seed >> 2)) % 2048;
 }
