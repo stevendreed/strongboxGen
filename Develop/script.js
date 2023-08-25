@@ -8,28 +8,28 @@ inputs
 */
 var generateBtn = document.querySelector(`#generate`);
 
-const buttonOptions =
+const inputOptions =
 {
-    includeUpper:
-    {
-      displayText: `Include upper case characters? {A, B, C, ...}`,
-      buttonType: `checkmark`
-    },
-    includeNum:
-    {
-      displayText: `Include numeric characters? {1, 2, 3, ...}`,
-      buttonType: `checkmark`
-    },
-    includeSymbols:
-    {
-      displayText: `Include symbols? {$, #, |, ...}`,
-      buttonType: `checkmark`
-    },
-    pwLen:
-    {
-      displayText: `Set a length from 8 to 128`,
-      buttonType: `slider`
-    },
+  includeUpper:
+  {
+    displayText: `Include upper case characters? {A, B, C, ...}`,
+    inputType: `checkmark`
+  },
+  includeNum:
+  {
+    displayText: `Include numeric characters? {1, 2, 3, ...}`,
+    inputType: `checkmark`
+  },
+  includeSymbols:
+  {
+    displayText: `Include symbols? {$, #, |, ...}`,
+    inputType: `checkmark`
+  },
+  pwLen:
+  {
+    displayText: `Set a length from 8 to 128`,
+    inputType: `slider`
+  },
 }
 
 // Write password to the #password input
@@ -50,7 +50,7 @@ function writePassword()
 /*
 userInput()
 
-generates buttons on the page that allow the end-user to select what properties
+generates inputs on the page that allow the end-user to select what properties
 they want their password to have
 
 properties include:
@@ -67,8 +67,21 @@ function usrInput()
 {
   // find element with card class
   const passwordCard = document.getElementsByClassName(`card`);
-  
   let li = document.createElement("li"); // create an <li> element on the page
+
+  // loop through the input options and add display text, set the input type,
+  // add a tracking no to find the order easily
+  let tracker = 0;
+  for (object in inputOptions)
+  {
+    li.textContent = inputOptions.object.displayText;
+    li.setAttribute(`data-input`, inputOptions.object.inputType);
+    li.setAttribute(`data-no`,++tracker);
+
+    // create input in UI
+    document.createElement(`input`).
+  }
+  
   
   // set data attributes for whether or not they were checked/clicked
 
