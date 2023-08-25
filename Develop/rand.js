@@ -43,9 +43,12 @@ upper range of the function
 for information on xorshift psuedorandom generators, see
 see: https://www.iro.umontreal.ca/~lecuyer/myftp/papers/xorshift.pdf
 */
-function myRand(seed)
+function myRand(seed, n)
 { 
-    let n = 2048 // set n to be upper value + 1
+    if (!n)
+    {
+        n = 2048
+    }
     seed = seed >> 3 // primes
     seed = seed << 5
     seed = seed >> 7
