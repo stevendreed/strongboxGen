@@ -1,5 +1,11 @@
+/*
+script.js
 
-// Assignment Code
+this file contains app functions to respond to user input events, provide
+functionality to index.html, and build out elements in response to these
+inputs
++=============================================================================+
+*/
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
