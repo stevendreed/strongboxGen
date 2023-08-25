@@ -11,9 +11,26 @@ which can be used to generate the actual random component of password elements
 
 function mySeeder()
 {
-    // filler function that returns an integer based on epoch time
-    return Math.floor(parseFloat(Date()));
-}
+    // obtain the current date
+    const date = Date();
+
+    // instance an empty array
+    let numericStr = [];
+
+    // loop through date string and copy only numeric values to array
+
+    for (let i = 0; i < date.length; i++)
+    {
+        if (!isNaN(date[i]))
+        {
+            numericStr.push(date[i]);
+        } // end if
+    } // end for
+    // parse a float from the numeric-only string
+    // set as an integer
+    // return the generated seed value
+    return Math.floor(parseFloat(numericStr));
+} // end mySeeder
 
 
 /*
