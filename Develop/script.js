@@ -11,10 +11,11 @@ var generateBtn = document.querySelector(`#generate`);
 // Write password to the #password input
 function writePassword()
 {
-  // build a list of elements for: lower/uppercase, numeric, special chars,
-  // and length of password (7 < n < 129)
+  // gather options configured from end-user out of html data attr  
+  let pwOptions = [];
 
-  var password = pwGen();
+// pass pwGen args based on what was enabled by end-user
+  var password = pwGen(pwOptions);
   var passwordText = document.querySelector(`#password`);
   // set text value to equal generated password
   passwordText.value = password;
@@ -30,13 +31,26 @@ they want their password to have
 
 properties include:
  - include upper & lower, just upper, just lower
+ - number of these
  - include numeric [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+ - number of these
  - include special chars: [ , !, ", #, $, %, &, ', (, ), *, +, ',',-, .,
                             :, ;, <, =, >, ?, @, [, ], ^, _, `, {, |, }, ~]
+ - number of these
+ - set password length from 8 to 128
 */
 function usrInput()
 {
+  // find element with card class
   const passwordCard = document.getElementsByClassName(`card`);
+
+  // append children elements for each button needed
+
+  // set data attributes for whether or not they were checked/clicked
+
+  // set ids for each button to find them easily
+
+  // render each button in a user-friendly way
 }
 
 // [# of caps, # of nums, # symbols, # total]
