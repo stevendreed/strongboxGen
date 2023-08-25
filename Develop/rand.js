@@ -19,10 +19,14 @@ function mySeeder()
 /*
 myRand(numberInputToSeed)
 
-this function returns a value from 0 to 2048 with the modulus operator
+myRand accepts an integer seed value, bitwise shifts it two to the right,
+takes the absolute value, then mod by the range this value should be spread
+across
+
+this function returns a value from 0 to n - 1
 */
 function myRand(seed)
 { 
-    // returns values from 0 - 2047
-    return (Math.abs(seed >> 2)) % 2048;
+    let n = 2048 // set n to be upper value + 1
+    return (Math.abs(seed >> 2)) % n;
 }
