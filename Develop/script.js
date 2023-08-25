@@ -8,6 +8,30 @@ inputs
 */
 var generateBtn = document.querySelector(`#generate`);
 
+const buttonOptions =
+{
+    includeUpper:
+    {
+      displayText: `Include upper case characters? {A, B, C, ...}`,
+      buttonType: `checkmark`
+    },
+    includeNum:
+    {
+      displayText: `Include numeric characters? {1, 2, 3, ...}`,
+      buttonType: `checkmark`
+    },
+    includeSymbols:
+    {
+      displayText: `Include symbols? {$, #, |, ...}`,
+      buttonType: `checkmark`
+    },
+    pwLen:
+    {
+      displayText: `Set a length from 8 to 128`,
+      buttonType: `slider`
+    },
+}
+
 // Write password to the #password input
 function writePassword()
 {
@@ -43,16 +67,7 @@ function usrInput()
 {
   // find element with card class
   const passwordCard = document.getElementsByClassName(`card`);
-  const buttonOptions =
-  {
-    includeUpper:
-    {
-      displayText: `Include upper case characters?`,
-      buttonType: `checkmark`
-    },
-
-
-  }
+  
   let li = document.createElement("li"); // create an <li> element on the page
   
   // set data attributes for whether or not they were checked/clicked
