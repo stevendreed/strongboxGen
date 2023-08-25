@@ -12,29 +12,45 @@ which can be used to generate the actual random component of password elements
 function mySeeder()
 {
     // obtain the current date
-    const date = Date();
-
+    const date = Date.now();
+    /*
+    MZN docs: https://developer.mozilla.org/
+    en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
+    */
+    // const date = Date();
+    // console.log(date);
     // instance an empty array
-    let numericStr = [];
+    // let numericStr = [];
 
     // loop through date string and copy only numeric values to array
 
-    for (let i = 0; i < date.length; i++)
-    {
-        console.log(date[i]);
-        if (Number.isInteger(date[i]))
-        {
-            console.log(!isNaN(date[i]));
-            numericStr.push(date[i]);
-            console.log(`numeric string: ${numericStr}`)
-        } // end if
-    } // end for
+    // for (let i = 0; i < date.length; i++)
+    // {
+    //     console.log(date[i]);
+    //     if (!isNaN(date[i]))
+    //     {
+    //         console.log(!isNaN(date[i]));
+    //         numericStr.push(date[i]);
+    //         console.log(`numeric string: ${numericStr}`)
+    //     } // end if
+    // } // end for
+
+    // // remove unwanted `,`s
+    // for (let i = 0; i < numericStr.length; i++)
+    // {
+    //     if (numericStr[i] % 1 != numericStr[i])
+    //     {
+    //         numericStr.splice(i, 1);
+    //     }
+    //     console.log(`numeric string: ${numericStr}`);
+    // }
 
     // parse a float from the numeric-only string
     // set as an integer
     // return the generated seed value
-    console.log(`return val: ${Math.floor(parseFloat(numericStr))}`)
-    return Math.floor(parseFloat(numericStr));
+    // console.log(`return val: ${Math.floor(parseFloat(numericStr))}`)
+    // return Math.floor(parseFloat(numericStr));
+    return Math.floor(date);
 } // end mySeeder
 
 
