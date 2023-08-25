@@ -1,6 +1,3 @@
-// importing my random functions from rand.js
-
-import { rand, mySeeder } from `./rand.js`;
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
