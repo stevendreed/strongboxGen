@@ -21,14 +21,19 @@ function mySeeder()
 
     for (let i = 0; i < date.length; i++)
     {
-        if (!isNaN(date[i]))
+        console.log(date[i]);
+        if (Number.isInteger(date[i]))
         {
+            console.log(!isNaN(date[i]));
             numericStr.push(date[i]);
+            console.log(`numeric string: ${numericStr}`)
         } // end if
     } // end for
+
     // parse a float from the numeric-only string
     // set as an integer
     // return the generated seed value
+    console.log(`return val: ${Math.floor(parseFloat(numericStr))}`)
     return Math.floor(parseFloat(numericStr));
 } // end mySeeder
 
