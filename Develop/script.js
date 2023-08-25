@@ -12,7 +12,7 @@ var generateBtn = document.querySelector(`#generate`);
 function writePassword()
 {
   // gather options configured from end-user out of html data attr  
-  let pwOptions = [];
+  let pwOptions = {}; // todo: set key-data pair to match with pw options
 
 // pass pwGen args based on what was enabled by end-user
   var password = pwGen(pwOptions);
@@ -57,6 +57,8 @@ function usrInput()
 function pwGen(inputArgs)
 {
   // default behavior
+
+  // note: pass an object of true/false for each param instead
   if (!inputArgs)
   {
     inputArgs.append(2);
@@ -65,8 +67,7 @@ function pwGen(inputArgs)
     inputArgs.append(12); // this means 6 filler chars by default
   }
   let pwOut = [];
-  
-
+  console.log(inputArgs);
   return pwOut;
 }
 
