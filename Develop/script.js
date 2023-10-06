@@ -8,30 +8,6 @@ inputs
 */
 var generateBtn = document.querySelector(`#generate`);
 
-const inputOptions =
-{
-  includeUpper:
-  {
-    displayText: `Include upper case characters? {A, B, C, ...}`,
-    inputType: `checkbox`
-  },
-  includeNum:
-  {
-    displayText: `Include numeric characters? {1, 2, 3, ...}`,
-    inputType: `checkbox`
-  },
-  includeSymbols:
-  {
-    displayText: `Include symbols? {$, #, |, ...}`,
-    inputType: `checkbox`
-  },
-  pwLen:
-  {
-    displayText: `Set a length from 8 to 128`,
-    inputType: `range`
-  },
-}
-
 // Write password to the #password input
 function writePassword()
 {
@@ -65,32 +41,53 @@ properties include:
 */
 function usrInput()
 {
+  
+  const inputOptions =
+  {
+    includeUpper:
+    {
+      displayText: `Include upper case characters? {A, B, C, ...}`,
+      inputType: `checkbox`
+    },
+    includeNum:
+    {
+      displayText: `Include numeric characters? {1, 2, 3, ...}`,
+      inputType: `checkbox`
+    },
+    includeSymbols:
+    {
+      displayText: `Include symbols? {$, #, |, ...}`,
+      inputType: `checkbox`
+    },
+    pwLen:
+    {
+      displayText: `Set a length from 8 to 128`,
+      inputType: `range`
+    },
+  }
   // find element with card class
   const passwordCard = document.getElementsByClassName(`card`);
-  let input = document.createElement(`input`); // create an  <input> element on the page
+  let inputBtn = document.createElement(`input`); // create an  <input> element on the page
 
   // loop through the input options and add display text, set the input type,
   // add a tracking no to find the order easily
   let tracker = 0;
+
+  // loop through each object and assign a button with each property
   for (object in inputOptions)
   {
-   input.textContent = inputOptions.object.displayText;
-   input.setAttribute(`type`, inputOptions.object.inputType);
-   input.setAttribute(`data-no`,++tracker);
+   inputBtn.textContent = inputOptions.object.displayText;
+   console.log(inputBtn.textContent); // debugging
+   inputBtn.setAttribute(`type`, inputOptions.object.inputType);
+   console.log(inputBtn.type); // debugging
+   inputBtn.setAttribute(`data-no`, ++tracker);
+   console.log(inputBtn.dataNo); // debugging
     
 
     // create input in UI
     document.createElement(`input`);
+    passwordCard.appendChild(inputBtn);
   }
-  
-  
-  // set data attributes for whether or not they were checked/clicked
-
-  // set ids for each button to find them easily
-
-  // append children elements for each button needed
-
-  // render each button in a user-friendly way
 }
 
 // [# of caps, # of nums, # symbols, # total]
