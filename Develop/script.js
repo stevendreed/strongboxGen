@@ -4,7 +4,7 @@ script.js
 this file contains app functions to respond to user input events, provide
 functionality to index.html, and build out elements in response to these
 inputs
-+=============================================================================+
++=================================================================================================+
 */
 var generateBtn = document.querySelector(`#generate`);
 
