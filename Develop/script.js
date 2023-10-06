@@ -93,7 +93,17 @@ function pwGen(inputArgs)
 const initPwOptions = function(pwObj)
 {
   // find div to append child form and grandchildren buttons to
-  const inputFieldEl = document.getElementsByClassName(`pw-options`);
+  const inputFieldEl = document.getElementsByClassName(`pw-options`)
+  .createElement(`form`)
+  .setAttribute(`id`, `pwForm`);
+  for (let object in pwObj)
+  {
+    const newInEl = inputFieldEl.createElement(`input`)
+    .setAttribute(`name`, object.displayText)
+    .setAttribute(``)
+
+    inputFieldEl.appendChild(newInEl); // add as child to the input form
+  } // end for in
 
 } // end initPwOptions
 
