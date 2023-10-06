@@ -86,11 +86,11 @@ function pwGen(inputArgs)
 }
 
 /*
-* initPwOptions(null)
+* initPwOptions(object of objects)
 * this function initializes a set of buttons and inputs within a form tag
 * returns an object of button-tags and value entered as key-value pairs
 */
-const initPwOptions = function()
+const initPwOptions = function(pwObj)
 {
   // find div to append child form and grandchildren buttons to
   const inputFieldEl = document.getElementsByClassName(`pw-options`);
