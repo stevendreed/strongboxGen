@@ -47,22 +47,26 @@ function usrInput()
     includeUpper:
     {
       displayText: `Include upper case characters? {A, B, C, ...}`,
-      inputType: `checkbox`
+      inputType: `checkbox`,
+      enabled: false
     },
     includeNum:
     {
       displayText: `Include numeric characters? {1, 2, 3, ...}`,
-      inputType: `checkbox`
+      inputType: `checkbox`,
+      enabled: false
     },
     includeSymbols:
     {
       displayText: `Include symbols? {$, #, |, ...}`,
-      inputType: `checkbox`
+      inputType: `checkbox`,
+      enabled: false
     },
     pwLen:
     {
       displayText: `Set a length from 8 to 128`,
-      inputType: `range`
+      inputType: `range`,
+      enabled: false
     },
   }
   // find element with card class
