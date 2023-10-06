@@ -1,0 +1,11 @@
+# .gitignore
+
+*.o
+*.pyc
+*.class
+*.log
+*.lock
+*.tmp
+*.DS_Store
+Thumnbs.db
+*.mytest.*
