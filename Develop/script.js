@@ -111,5 +111,15 @@ function pwGen(inputArgs)
   return pwOut;
 }
 
+/*
+* initPwOptions(null)
+* this function initializes a set of buttons and inputs within a form tag
+* returns an object of button-tags and value entered as key-value pairs
+*/
+const initPwOptions = function()
+{
+
+} // end initPwOptions
+
 // Add event listener to generate button
 generateBtn.addEventListener(`click`, writePassword());
