@@ -24,7 +24,7 @@ function writePassword()
 }
 
 /*
-userInput()
+userInput(null)
 
 generates inputs on the page that allow the end-user to select what properties
 they want their password to have
@@ -76,14 +76,13 @@ function usrInput()
   // loop through each object and assign a button with each property
   for (object in inputOptions)
   {
-   inputBtn.textContent = inputOptions.object.displayText;
-   console.log(inputBtn.textContent); // debugging
-   inputBtn.setAttribute(`type`, inputOptions.object.inputType);
-   console.log(inputBtn.type); // debugging
-   inputBtn.setAttribute(`data-no`, ++tracker);
-   console.log(inputBtn.dataNo); // debugging
+    inputBtn.textContent = inputOptions.object.displayText;
+    console.log(inputBtn.textContent); // debugging
+    inputBtn.setAttribute(`type`, inputOptions.object.inputType);
+    console.log(inputBtn.type); // debugging
+    inputBtn.setAttribute(`data-no`, ++tracker);
+    console.log(inputBtn.dataNo); // debugging
     
-
     // create input in UI
     document.createElement(`input`);
     passwordCard.appendChild(inputBtn);
