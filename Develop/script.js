@@ -42,33 +42,7 @@ properties include:
 function usrInput()
 {
   
-  const inputOptions =
-  {
-    includeUpper:
-    {
-      displayText: `Include upper case characters? {A, B, C, ...}`,
-      inputType: `checkbox`,
-      enabled: false
-    },
-    includeNum:
-    {
-      displayText: `Include numeric characters? {1, 2, 3, ...}`,
-      inputType: `checkbox`,
-      enabled: false
-    },
-    includeSymbols:
-    {
-      displayText: `Include symbols? {$, #, |, ...}`,
-      inputType: `checkbox`,
-      enabled: false
-    },
-    pwLen:
-    {
-      displayText: `Set a length from 8 to 128`,
-      inputType: `range`,
-      enabled: false
-    },
-  }
+  
   // find element with card class
   const passwordCard = document.getElementsByClassName(`card`);
   let inputBtn = document.createElement(`input`); // create an  <input> element on the page
@@ -91,7 +65,7 @@ function usrInput()
     document.createElement(`input`);
     passwordCard.appendChild(inputBtn);
   }
-}
+} // end usrInput
 
 // [# of caps, # of nums, # symbols, # total]
 function pwGen(inputArgs)
@@ -120,8 +94,38 @@ const initPwOptions = function()
 {
   // find div to append child form and grandchildren buttons to
   const inputFieldEl = document.getElementsByClassName(`pw-options`);
-  
+
 } // end initPwOptions
+
+// object of objects that are each of our password options 
+const pwOptions =
+{
+  includeUpper:
+  {
+    displayText: `Include upper case characters? {A, B, C, ...}`,
+    inputType: `checkbox`,
+    enabled: false
+  },
+  includeNum:
+  {
+    displayText: `Include numeric characters? {1, 2, 3, ...}`,
+    inputType: `checkbox`,
+    enabled: false
+  },
+  includeSymbols:
+  {
+    displayText: `Include symbols? {$, #, |, ...}`,
+    inputType: `checkbox`,
+    enabled: false
+  },
+  pwLen:
+  {
+    displayText: `Set a length from 8 to 128`,
+    inputType: `range`,
+    enabled: false
+  }
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener(`click`, writePassword());
+
