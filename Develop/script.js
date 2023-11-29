@@ -39,13 +39,13 @@ properties include:
  - number of these (optional)
  - set password length from 8 to 128
 */
-function usrInput()
+function usrInput(inputOptions)
 {
-  
-  
   // find element with card class
-  const passwordCard = document.getElementsByClassName(`card`);
+  const passwordCard = document.getElementsById(`pw-options`);
+  console.log(passwordCard); // debugging
   let inputBtn = document.createElement(`input`); // create an  <input> element on the page
+  console.log(inputBtn); // debugging
 
   // loop through the input options and add display text, set the input type,
   // add a tracking no to find the order easily
@@ -100,16 +100,19 @@ const initPwOptions = function(pwObj)
   {
     const newInEl = inputFieldEl.createElement(`input`)
     .setAttribute(`name`, object.displayText)
-    .setAttribute(``)
+    .setAttribute(`type`, object.inputType)
+    .setAttribute(`data-attribute`, object)
 
     inputFieldEl.appendChild(newInEl); // add as child to the input form
   } // end for in
 
 } // end initPwOptions
 
-// object of objects that are each of our password options 
-const pwOptions =
-{
+// Add event listener to generate button
+generateBtn.addEventListener(`click`, writePassword());
+
+// Dynamically create user input options
+usrInput({
   includeUpper:
   {
     displayText: `Include upper case characters? {A, B, C, ...}`,
@@ -134,8 +137,4 @@ const pwOptions =
     inputType: `range`,
     enabled: false
   }
-};
-
-// Add event listener to generate button
-generateBtn.addEventListener(`click`, writePassword());
-
+});
