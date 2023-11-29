@@ -6,7 +6,7 @@ functionality to index.html, and build out elements in response to these
 inputs
 +=================================================================================================+
 */
-var generateBtn = document.querySelector(`#generate`);
+var generateBtn = document.getElementById(`generate`);
 
 // Write password to the #password input
 function writePassword()
@@ -16,19 +16,20 @@ function writePassword()
   // let pwOptions = {}; // todo: set key-data pair to match with pw options
   let pwOptForm = document.getElementById('pw-opt-form');
 
-  let incUpp = pwOptForm
-  .getElementById('inc-upper').value
-  let incNum = pwOptForm
-    .getElementById('inc-numeric').value
-  let incSymb = pwOptForm
-    .getElementById('inc-symbols').value
-  let lenRange = pwOptForm
-    .getElementById('len-range').value
+  // let incUpp = pwOptForm
+  //   .childNodes('inc-upper').value
+  // let incNum = pwOptForm
+  //   .getElementById('inc-numeric').value
+  // let incSymb = pwOptForm
+  //   .getElementById('inc-symbols').value
+  // let lenRange = pwOptForm
+  //   .getElementById('len-range').value
   
 // pass pwGen args based on what was enabled by end-user
-  let password = pwGen({
-    incUpp, incNum, incSymb, lenRange
-  });
+  // let password = pwGen({
+  //   incUpp, incNum, incSymb, lenRange
+  // });
+  let password = pwGen(pwOptForm.childNodes); // pass an array for child nodes
   // set text value to equal generated password
   document.querySelector(`#password`)
   .value = password;
