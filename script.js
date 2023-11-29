@@ -14,7 +14,7 @@ function writePassword()
   console.log('welcome to writePassword()'); // debugging
   // gather options configured from end-user out of html data attr  
   // let pwOptions = {}; // todo: set key-data pair to match with pw options
-  let pwOptForm = document.getElementById('pw-opt-form');
+  // let pwOptForm = document.getElementById('pw-opt-form');
 
   // let incUpp = pwOptForm
   //   .childNodes('inc-upper').value
@@ -29,7 +29,14 @@ function writePassword()
   // let password = pwGen({
   //   incUpp, incNum, incSymb, lenRange
   // });
-  let password = pwGen(pwOptForm.childNodes); // pass an array for child nodes
+  console.log(document.getElementById('inc-upper')); // debugging
+  let pwOptions = [
+    document.getElementById('inc-upper').checked,
+    document.getElementById('inc-numeric').checked,
+    document.getElementById('inc-symbols').checked,
+    document.getElementById('len-range').value,
+];
+  let password = pwGen(pwOptions); // pass an array for checked values
   // set text value to equal generated password
   document.querySelector(`#password`)
   .value = password;
@@ -88,14 +95,13 @@ function pwGen(inputArgs)
   // note: pass an object of true/false for each param instead
   if (!inputArgs)
   {
-    inputArgs.append(2);
-    inputArgs.append(2);
-    inputArgs.append(2);
-    inputArgs.append(12); // this means 6 filler chars by default
+    inputArgs.append(true);
+    inputArgs.append(true);
+    inputArgs.append(true);
+    inputArgs.append("12"); // this means 6 filler lowercase chars by default
   }
-  let pwOut = [];
   console.log(inputArgs);
-  return pwOut;
+  // return pwOut;
 }
 
 /*
@@ -151,5 +157,16 @@ function pwGen(inputArgs)
 // });
 
 // Add event listener to generate button
-writePassword();
-generateBtn.addEventListener(`click`, writePassword());
+// writePassword();
+generateBtn.addEventListener('click', () =>
+{
+  let pwLen = document.getElementById('len-range').value;
+  if (pwLen >= 8 && pwLen <= 128)
+  {
+    writePassword();
+  }
+  else
+  {
+    console.log(`error: please enter a valid length (value entered: ${pwLen})`);
+  }
+});
