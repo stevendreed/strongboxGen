@@ -11,6 +11,7 @@ var generateBtn = document.querySelector(`#generate`);
 // Write password to the #password input
 function writePassword()
 {
+  console.log('welcome to writePassword()'); // debugging
   // gather options configured from end-user out of html data attr  
   let pwOptions = {}; // todo: set key-data pair to match with pw options
 
@@ -43,9 +44,9 @@ function usrInput(inputOptions)
 {
   // find element with card class
   const passwordCard = document.getElementsById(`pw-options`);
-  console.log(passwordCard); // debugging
+  console.log(`pw-options: ${passwordCard}`); // debugging
   let inputBtn = document.createElement(`input`); // create an  <input> element on the page
-  console.log(inputBtn); // debugging
+  console.log(`inputBtn: ${inputBtn}`); // debugging
 
   // loop through the input options and add display text, set the input type,
   // add a tracking no to find the order easily
@@ -54,9 +55,9 @@ function usrInput(inputOptions)
   // loop through each object and assign a button with each property
   for (object in inputOptions)
   {
-    inputBtn.textContent = inputOptions.object.displayText;
+    inputBtn.textContent = object.displayText;
     console.log(inputBtn.textContent); // debugging
-    inputBtn.setAttribute(`type`, inputOptions.object.inputType);
+    inputBtn.setAttribute(`type`, object.inputType);
     console.log(inputBtn.type); // debugging
     inputBtn.setAttribute(`data-no`, ++tracker);
     console.log(inputBtn.dataNo); // debugging
@@ -108,8 +109,6 @@ const initPwOptions = function(pwObj)
 
 } // end initPwOptions
 
-// Add event listener to generate button
-generateBtn.addEventListener(`click`, writePassword());
 
 // Dynamically create user input options
 usrInput({
@@ -138,3 +137,6 @@ usrInput({
     enabled: false
   }
 });
+
+// Add event listener to generate button
+generateBtn.addEventListener(`click`, writePassword());

@@ -25,9 +25,41 @@
             aria-label="Generated Password"
           ></textarea>
         </div>
-        <div class="card-body" id="pw-options">
-          <!-- script.js will dynamically add forum + buttons here to customize pw -->
-        </div>
+        <form class="card-body" id="pw-options">
+          <ul>
+            <input
+              type="checkbox"
+              id="inc-upper"
+            />
+            <label>Include upper case characters? {A, B, C, ...}</label>
+          </ul>
+          <ul>
+            <input
+              type="checkbox"
+              id="inc-numeric"
+            />
+            <label>Include numeric characters? {1, 2, 3, ...}</label>
+          </ul>
+          <ul>
+            <input
+              type="checkbox"
+              id="inc-symbols"
+            />
+            <label>Include symbols? {$, #, |, ...}</label>
+          </ul>
+          <ul>
+            <label>Set a length from 8 to 128</label>
+          </ul>
+          <ul>
+            <input
+              type="number"
+              id="len-range"
+              max="128"
+              min="8"
+              default="12"
+            />
+          </ul>
+        </form>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
