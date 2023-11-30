@@ -1,34 +1,13 @@
 /*
 script.js
-
-this file contains app functions to respond to user input events, provide
-functionality to index.html, and build out elements in response to these
-inputs
 +=================================================================================================+
 */
-var generateBtn = document.getElementById(`generate`);
+const generateBtn = document.getElementById(`generate`);
 
 // Write password to the #password input
-function writePassword()
+const writePassword = function ()
 {
   console.log('welcome to writePassword()'); // debugging
-  // gather options configured from end-user out of html data attr  
-  // let pwOptions = {}; // todo: set key-data pair to match with pw options
-  // let pwOptForm = document.getElementById('pw-opt-form');
-
-  // let incUpp = pwOptForm
-  //   .childNodes('inc-upper').value
-  // let incNum = pwOptForm
-  //   .getElementById('inc-numeric').value
-  // let incSymb = pwOptForm
-  //   .getElementById('inc-symbols').value
-  // let lenRange = pwOptForm
-  //   .getElementById('len-range').value
-  
-// pass pwGen args based on what was enabled by end-user
-  // let password = pwGen({
-  //   incUpp, incNum, incSymb, lenRange
-  // });
   console.log(document.getElementById('inc-upper')); // debugging
   let pwOptions = [
     document.getElementById('inc-upper').checked,
@@ -36,7 +15,12 @@ function writePassword()
     document.getElementById('inc-symbols').checked,
     document.getElementById('len-range').value,
 ];
-  let password = pwGen(pwOptions); // pass an array for checked values
+  let password = '';
+  let pwArray = pwGen(pwOptions); // pass an array for checked values
+  for (i in pwArray)
+  {
+    password += pwArray[i];
+  }
   // set text value to equal generated password
   document.querySelector(`#password`)
   .value = password;
@@ -44,12 +28,8 @@ function writePassword()
 }
 
 /*
-userInput(null)
 
-generates inputs on the page that allow the end-user to select what properties
-they want their password to have
-
-properties include:
+password properties include:
  - include upper & lower, just upper, just lower
  - number of these (optional)
  - include numeric [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -59,40 +39,15 @@ properties include:
  - number of these (optional)
  - set password length from 8 to 128
 */
-// function usrInput(inputOptions)
-// {
-//   // find element with card class
-//   const passwordCard = document.getElementsById(`pw-options`);
-//   console.log(`pw-options: ${passwordCard}`); // debugging
-//   let inputBtn = document.createElement(`input`); // create an  <input> element on the page
-//   console.log(`inputBtn: ${inputBtn}`); // debugging
-
-//   // loop through the input options and add display text, set the input type,
-//   // add a tracking no to find the order easily
-//   let tracker = 0;
-
-//   // loop through each object and assign a button with each property
-//   for (object in inputOptions)
-//   {
-//     inputBtn.textContent = object.displayText;
-//     console.log(inputBtn.textContent); // debugging
-//     inputBtn.setAttribute(`type`, object.inputType);
-//     console.log(inputBtn.type); // debugging
-//     inputBtn.setAttribute(`data-no`, ++tracker);
-//     console.log(inputBtn.dataNo); // debugging
-    
-//     // create input in UI
-//     document.createElement(`input`);
-//     passwordCard.appendChild(inputBtn);
-//   }
-// } // end usrInput
-
-// [# of caps, # of nums, # symbols, # total]
-function pwGen(inputArgs)
+const pwGen = function (inputArgs)
 {
-  // default behavior
-
-  // note: pass an object of true/false for each param instead
+  let pwOut = [];
+  let pwLen = inputArgs[3];
+  // build empty array
+  for (let i = 0; i < pwLen; i++)
+  {
+    pwOut.push(''); // blank space
+  }
   if (!inputArgs)
   {
     inputArgs.append(true);
@@ -101,60 +56,81 @@ function pwGen(inputArgs)
     inputArgs.append("12"); // this means 6 filler lowercase chars by default
   }
   console.log(inputArgs);
-  // return pwOut;
+  if (inputArgs[0])
+  {
+    // WHILE LOOP: loop through and randomly insert upper case chars to random
+    // indices. 1000 is to prevent algorithmic infinite loop
+    let i = 0;
+    let k = 0;
+    while (i < 1000 && k < 2)
+    {
+      let n = myRand(mySeeder(), pwLen);
+      if (pwOut[n] === '')
+      {
+        // return a string from an ASCII value. A = ASCII 65, therefore
+        // we can add 65 to any return from 0 to 25 and generate a capital
+        // letter
+        pwOut[n] = String.fromCharCode(myRand(mySeeder(), 26) + 65);
+        k++; // success counter
+        console.log(`successes = ${k} || pwOut = ${pwOut}`);
+      }
+      i++; // failsafe counter
+    }
+    console.log(`after adding capitals: ${pwOut}, password len = ${pwLen}`);
+  }
+  if (inputArgs[1])
+  {
+    let i = 0;
+    let k = 0;
+    while (i < 1000 && k < 2)
+    {
+      let n = myRand(mySeeder(), pwLen);
+      if (pwOut[n] === '')
+      {
+        // return a string from an ASCII value. A = ASCII 65, therefore
+        // we can add 65 to any return from 0 to 25 and generate a capital
+        // letter
+        pwOut[n] = myRand(mySeeder(), 10);
+        k++; // success counter
+        console.log(`successes = ${k} || pwOut = ${pwOut}`);
+      } // end if 
+      i++; // failsafe counter
+    } // end while
+    console.log(`after adding numbers: ${pwOut}, password len = ${pwLen}`);
+  } // end if
+  if (inputArgs[2])
+  {
+    let i = 0;
+    let k = 0;
+    while (i < 1000 && k < 2)
+    {
+      let n = myRand(mySeeder(), pwLen);
+      if (pwOut[n] === '')
+      {
+        const allSpecialChars = ['!', '"', '#', '$', '%', '&', '\'', '(', ')',
+                                 '*', '+', ',', '-', '.', '/', ':', ';', '<',
+                                 '=', '>', '?', '@', '[', ']', '^', '_', '`',
+                                 '{', '|', '}', '~'];
+        let specChar = myRand(mySeeder(), allSpecialChars.length);
+        pwOut[n] = allSpecialChars[specChar];
+        k++; // success counter
+        console.log(`successes = ${k} || pwOut = ${pwOut}`);
+      } // end if 
+      i++; // failsafe counter
+    } // end while
+    console.log(`after adding special chars: ${pwOut}, password len = ${pwLen}`);
+  }
+  // loop through and fill remaining with lowercase chars
+  for (let i = 0; i < pwLen; i++)
+  {
+    if (pwOut[i] === '')
+    {
+      pwOut[i] = String.fromCharCode(myRand(mySeeder(), 26) + 97);
+    }
+  }
+  console.log(`final pwOut = ${pwOut}`)
+  return pwOut;
 }
-
-/*
-* initPwOptions(object of objects)
-* this function initializes a set of buttons and inputs within a form tag
-* returns an object of button-tags and value entered as key-value pairs
-*/
-// const initPwOptions = function(pwObj)
-// {
-//   // find div to append child form and grandchildren buttons to
-//   const inputFieldEl = document.getElementsByClassName(`pw-options`)
-//   .createElement(`form`)
-//   .setAttribute(`id`, `pwForm`);
-//   for (let object in pwObj)
-//   {
-//     const newInEl = inputFieldEl.createElement(`input`)
-//     .setAttribute(`name`, object.displayText)
-//     .setAttribute(`type`, object.inputType)
-//     .setAttribute(`data-attribute`, object)
-
-//     inputFieldEl.appendChild(newInEl); // add as child to the input form
-//   } // end for in
-
-// } // end initPwOptions
-
-
-// Dynamically create user input options
-// usrInput({
-//   includeUpper:
-//   {
-//     displayText: `Include upper case characters? {A, B, C, ...}`,
-//     inputType: `checkbox`,
-//     enabled: false
-//   },
-//   includeNum:
-//   {
-//     displayText: `Include numeric characters? {1, 2, 3, ...}`,
-//     inputType: `checkbox`,
-//     enabled: false
-//   },
-//   includeSymbols:
-//   {
-//     displayText: `Include symbols? {$, #, |, ...}`,
-//     inputType: `checkbox`,
-//     enabled: false
-//   },
-//   pwLen:
-//   {
-//     displayText: `Set a length from 8 to 128`,
-//     inputType: `range`,
-//     enabled: false
-//   }
-// });
 
 // Add event listener to generate button
 // writePassword();
