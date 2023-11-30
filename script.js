@@ -90,9 +90,12 @@ properties include:
 // [# of caps, # of nums, # symbols, # total]
 function pwGen(inputArgs)
 {
-  // default behavior
-
-  // note: pass an object of true/false for each param instead
+  let pwOut = [];
+  // build empty array
+  for (let i = 0; i < inputArgs[3]; i++)
+  {
+    pwOut.append(''); // blank space
+  }
   if (!inputArgs)
   {
     inputArgs.append(true);
@@ -101,7 +104,20 @@ function pwGen(inputArgs)
     inputArgs.append("12"); // this means 6 filler lowercase chars by default
   }
   console.log(inputArgs);
+  if (inputArgs[0])
+  {
+
+  }
+  if (inputArgs[1])
+  {
+
+  }
+  if (inputArgs[2])
+  {
+    
+  }
   // return pwOut;
+
 }
 
 /*
