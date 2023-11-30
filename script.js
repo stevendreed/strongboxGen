@@ -15,7 +15,12 @@ const writePassword = function ()
     document.getElementById('inc-symbols').checked,
     document.getElementById('len-range').value,
 ];
-  let password = pwGen(pwOptions); // pass an array for checked values
+  let password = '';
+  let pwArray = pwGen(pwOptions); // pass an array for checked values
+  for (i in pwArray)
+  {
+    password += pwArray[i];
+  }
   // set text value to equal generated password
   document.querySelector(`#password`)
   .value = password;
