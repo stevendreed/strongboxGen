@@ -18,18 +18,22 @@ Uses JavaScript to generate complex passwords based on user specifications
 ### Description
 >
 > This application provides a simple frontend that allows users to generate a psuedorandom password. The application is not purely cryptographically secure, and it does not calculate password entropy.
+>
+> The motivation to create this application was to explore hash functions, investigate secure methods of generating bytes, and practicing converting datatypes between arrays, integers, ASCII characters, and strings.
+>
+> For future development, testing password entropy & only outputting sufficiently strong passwords, as well as testing against known rainbow tables would improve the security of passwords generated with the app. For user experience, the app should allow users to select how many of each character they would like, as well as options to exclude certain characters (dyslexia-friendly passwords, such as passwords which do not use ', ` or O and 0, since these are hard to differentiate.
 ---
 ### Deployment Link
 >
-> Deployment link is pending - sit tight!
+> [Deployed Application](https://stevendreed.github.io/strongboxGen/)
 ---
 ### Installation Instructions
 >
-> Navigate to [GitPagesLink](www.google.com) and run the application from the browser
+> Navigate to https://stevendreed.github.io/strongboxGen/ and run the application from the browser
 ---
 ### Usage
 >
-> Navigate to [GitPagesLink](www.google.com), and select the password options you would like. Click the `Generate Password` button, then copy your password from the display text field.
+> Navigate to [Deployed Application](###Deployment-Link), and select the password options you would like. Click the `Generate Password` button, then copy your password from the display text field.
 ---
 ### Contribution Guidelines
 >
