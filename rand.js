@@ -18,15 +18,20 @@ is NOT random. This is a psuedorandom generator, meaning that it is difficult
 for a human to predict the output, but this does NOT mean it is challenging
 for a dedicated attacker to model
 */
+
+// const crypto = require('crypto');
+
 function mySeeder()
 {
-    // obtain the current date
-    const date = Date.now();
-    /*
-    MZN docs: https://developer.mozilla.org/
-    en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
-    */
-    return Math.floor(date);
+  // obtain the current date
+  const date = Date.now();
+  /*
+  MZN docs: https://developer.mozilla.org/
+  en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
+  */
+  // special thanks to:
+  // https://stackoverflow.com/questions/4083204/secure-random-numbers-in-javascript
+  return Math.floor(date) % window.crypto.getRandomValues(new Uint16Array(1));
 } // end mySeeder
 
 
