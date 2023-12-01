@@ -34,6 +34,9 @@ Uses JavaScript to generate complex passwords based on user specifications
 ### Usage
 >
 > Navigate to [Deployed Application](###Deployment-Link), and select the password options you would like. Click the `Generate Password` button, then copy your password from the display text field.
+> Shown: application home page ![Home Page](assets/blank_homepage.png)
+>
+> Shown: application with sample output ![Sample Password](assets/sample_password.png)
 ---
 ### Contribution Guidelines
 >
