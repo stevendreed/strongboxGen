@@ -5,6 +5,8 @@ Uses JavaScript to generate complex passwords based on user specifications
 ## Table of Contents
 [Description](###Description)
 
+[Deployment Link](###Deployment-Link)
+
 [Installation Instructions](###Installation-Instructions)
 
 [Usage](###Usage)
@@ -12,6 +14,8 @@ Uses JavaScript to generate complex passwords based on user specifications
 [Contribution Guidelines](###Contribution-Guidelines)
 
 [License](###License)
+
+[Sources](###Sources)
 
 [Questions?](###Questions?)
 
